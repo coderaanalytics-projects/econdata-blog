@@ -8,7 +8,15 @@ In this blog post we will illustrate how to create and import data into R using 
 
 The first step towards automation is setting up your own template with the data series that you would like to see on an on going basis and changing the plotting instructions to reflect your preferred format. Thereafter, all that is required is to run the script any time you would like to see the latest plots of the data. 
 
-First, lets load the required packages. 
+First, lets load the required packages. Note the inclusion of the EconData package `library(econdata)`. Since this package is available on Github and not on CRAN you will not be able to install it in the typical way. 
+
+The easiest way to do this for the uninitiated is to [download the source code from Github](https://github.com/coderaanalytics/econdatar/archive/refs/heads/master.zip), unzip the file, rename it to _econdatar_ and install it using the following command in R
+
+```r
+install.packages("your\path\to\econdatar",repos=NULL,type="source")
+```
+
+For those familiar installing packages from Github, that method will likely be more convenient.
 
 Using the `read_econdata()` function we can import the data directly into R. The function requires that we, at a minimum, provide the data set _id_ - in this case the [BA100 data set](https://www.econdata.co.za/FusionRegistry/data/datastructure.html). We also specify the _key_ so that only the time series that we are interested in are returned. The data we are downloading for this tutorial is total credit extension from all banking institutions in South Africa, it has the data key of _TOT.A3.L024_. 
 
