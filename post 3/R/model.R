@@ -17,3 +17,12 @@ headline <- xts(cpi$TC.00.0.0.0,
 headline_yoy <- (headline / stats::lag(headline, k = 12) - 1) * 100
 
 plot(headline_yoy)
+
+# Estimate auto ARIMA model
+arima_mod <- auto.arima(headline_yoy)
+
+# Create 1 year ahead forecasts
+f_cast <- forecast(arima_mod, h=12)
+
+# Plot forecast
+plot(f_cast, main = "Forecast of 12 month ahead y-o-y headline CPI")
