@@ -3,6 +3,7 @@ library(forecast)
 library(dplyr)
 library(ggplot2)
 library(xts)
+library(gridExtra)
 
 cpi <- read_econdata(id = "CPI_COICOP_5",
                      key = "TC.00.0.0.0",
@@ -25,8 +26,12 @@ arima_mod <- auto.arima(headline_yoy)
 f_cast <- forecast(arima_mod, h=12)
 
 # Plot forecast
-plot(f_cast, main = "Forecast of 12-month ahead y-o-y headline CPI")
+plot(f_cast, main = "Forecast of 12-month ahead y-o-y headline inflation")
 
-
-
+# Make a simple table of forecast values
+last_date <- last(index(headline_yoy))+1/12
+f_cast_data <- data.frame((seq(as.Date(last_date), length=12, by="month")+1),
+                f_cast$mean[1:12])
+colnames(f_cast_data) <- c("Date","Forecast")
+grid.table(f_cast_data, rows=NULL)
 
