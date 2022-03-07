@@ -1,6 +1,7 @@
 library(econdatar)
 library(dplyr)
 library(ggplot2)
+library(gridExtra)
 
 ba100 <- read_econdata(agencyid = "ECONDATA",
                                     id = "BA100",
@@ -24,5 +25,11 @@ head(ba100$TOT.A3.L024)
    filter(!is.na(Value)))
 
 # Plot YoY loans and advances
-ggplot(data = loans_and_advances, aes(x = Period, y = Value)) +
-  geom_line()
+
+ggplot(data = loans_and_advances) + 
+  geom_line(aes(x = Period, y = Value)) +
+  labs(caption = "www.econdata.co.za") + 
+  xlab("") + ylab("%") + 
+  theme_classic() + 
+  theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
+        panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank())
