@@ -25,4 +25,8 @@ arima_mod <- auto.arima(headline_yoy)
 f_cast <- forecast(arima_mod, h=12)
 
 # Plot forecast
-plot(f_cast, main = "Forecast of 12 month ahead y-o-y headline CPI")
+plot(f_cast, main = "Forecast of 12-month ahead y-o-y headline CPI")
+
+
+
+
