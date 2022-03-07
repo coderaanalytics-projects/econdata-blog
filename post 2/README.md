@@ -18,7 +18,9 @@ install.packages("your\path\to\econdatar",repos=NULL,type="source")
 
 For those familiar installing packages from Github, that method will likely be more convenient.
 
-Using the `read_econdata()` function we can import the data directly into R. The function requires that we, at a minimum, provide the data set _id_ - in this case the [BA100 data set](https://www.econdata.co.za/FusionRegistry/data/datastructure.html). We also specify the _key_ so that only the time series that we are interested in are returned. The data we are downloading for this tutorial is total credit extension from all banking institutions in South Africa, it has the data key of _TOT.A3.L024_. 
+Using the `read_econdata()` function we can import the data directly into R. In order to use the function you will need an active account with EconData, which can be created by following this [link](https://www.econdata.co.za/register).
+
+The function requires that we, at a minimum, provide the data set _id_ - in this case the [BA100 data set](https://www.econdata.co.za/FusionRegistry/data/datastructure.html). We also specify the _key_ so that only the time series that we are interested in are returned. The data we are downloading for this tutorial is total credit extension from all banking institutions in South Africa, it has the data key of _TOT.A3.L024_. 
 
 Let's take a look at how the data key is constructed for those that are interested, **this next section can be skipped without loss of continuity.** 
 
