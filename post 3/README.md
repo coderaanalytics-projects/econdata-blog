@@ -6,7 +6,7 @@ Model automation is usually not a trivial thing to do as it involves a collectio
 
 The specification of the model is handled by the R `forecast` package which employs an algorithm to choose an ARIMA model with the best fit based on the data. Therefore, similar to our previous blog post (which can be viewed here) all that is required to estimate the model and produce a forecast is to run the script. 
 
-First lets load the required packages.
+First lets load the required packages. If you missed out previous blog post, here is a link for the installation and EconData account creation details.
 
 We can now load the data using the `read_econdata()` function. We specify the data set _id_, data _key_, and _releasedescription_. 
 
