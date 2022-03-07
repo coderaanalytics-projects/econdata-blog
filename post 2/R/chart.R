@@ -28,7 +28,7 @@ head(ba100$TOT.A3.L024)
 
 ggplot(data = loans_and_advances) + 
   geom_line(aes(x = Period, y = Value)) +
-  labs(caption = "www.econdata.co.za") + 
+  labs(caption = "Source: www.econdata.co.za") + 
   xlab("") + ylab("%") + 
   theme_classic() + 
   theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
