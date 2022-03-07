@@ -20,7 +20,8 @@ head(ba100$TOT.A3.L024)
 
 # Convert time series to tibble and calculate YoY growth rate
 (loans_and_advances <- tibble(Period = as.Date(rownames(ba100$TOT.A3.L024)),
-                              Value = ba100$TOT.A3.L024$OBS_VALUE) %>%
+                              Value = ba100$TOT.A3.L024$OBS_VALUE,
+                              Label = "loans") %>%
    mutate(Value = (Value / dplyr::lag(Value, n = 12) - 1) * 100) %>%
    filter(!is.na(Value)))
 

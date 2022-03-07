@@ -16,7 +16,7 @@ The easiest way to do this for the uninitiated is to [download the source code f
 install.packages("your\path\to\econdatar",repos=NULL,type="source")
 ```
 
-For those familiar installing packages from Github, that method will likely be more convenient.
+For those familiar with installing packages from Github, that method will likely be more convenient.
 
 Using the `read_econdata()` function we can import the data directly into R. In order to use the function you will need an active account with EconData, which can be created by following this [link](https://www.econdata.co.za/register).
 
