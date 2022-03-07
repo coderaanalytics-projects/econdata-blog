@@ -1,6 +1,6 @@
 # Introducing EconData
 
-[EconData](https://econdata.co.za/) is a single source of South African macroeconomic data. EconData provides the public and researchers free access to a growing collection of South Africa data sources (currently over 80 000), making it easy to download and update economic time series and automate workflows that draw on this data. 
+[EconData](https://econdata.co.za/) is a single source of South African macroeconomic data. EconData provides researchers and broaderpublic free access to a growing collection of South Africa data sources (currently over 80 000). EconData makes it easy to download and update economic time series and automate workflows that draw on this data. 
 
 ### Automatable Data
 
