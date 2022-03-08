@@ -27,10 +27,15 @@ head(ba100$TOT.A3.L024)
 
 # Plot YoY loans and advances
 
-ggplot(data = loans_and_advances) + 
-  geom_line(aes(x = Period, y = Value)) +
-  labs(caption = "Source: www.econdata.co.za") + 
+(p <- ggplot(data = loans_and_advances) + 
+  geom_line(aes(x = Period, y = Value), colour = "#273b8d", size = 2) +
+  labs(caption = "Source: EconData") + 
   xlab("") + ylab("%") + 
-  theme_classic() + 
+  theme_classic(base_size = 14) + 
   theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
-        panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank())
+        panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(),
+        axis.text = element_text(face = "bold")))
+
+
+ggsave("C:/GIT/econdata-blog/post 2/isnt/loans and advances.png", height = 4.5,width = 6, plot = p, dpi=1600, 
+        limitsize = FALSE, device = "png")

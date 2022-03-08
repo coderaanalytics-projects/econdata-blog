@@ -17,7 +17,8 @@ headline <- xts(cpi$TC.00.0.0.0,
 
 headline_yoy <- (headline / stats::lag(headline, k = 12) - 1) * 100
 
-plot(headline_yoy)
+plot(headline_yoy, main =  "Headline y-o-y inflation", col = "#273b8d", lwd = 3)
+png(filename = )
 
 # Estimate auto ARIMA model
 arima_mod <- auto.arima(headline_yoy)
@@ -26,7 +27,9 @@ arima_mod <- auto.arima(headline_yoy)
 f_cast <- forecast(arima_mod, h=12)
 
 # Plot forecast
-plot(f_cast, main = "Forecast of 12-month ahead y-o-y headline inflation")
+plot(f_cast, main = "Forecast of 12-month ahead y-o-y headline inflation", 
+     col = "#273b8d",
+     lwd = 3)
 
 # Make a simple table of forecast values
 last_date <- last(index(headline_yoy))+1/12
