@@ -3,10 +3,9 @@ library(dplyr)
 library(ggplot2)
 library(gridExtra)
 
-ba100 <- read_econdata(agencyid = "ECONDATA",
-                                    id = "BA100",
-                                    key = "TOT..L024",
-                                    releasedescription = "Mar 2022")
+ba100 <- read_econdata(id = "BA100",
+                       key = "TOT..L024",
+                       releasedescription = "Mar 2022")
 
 # Series returned from EconData
 names(ba100)
@@ -26,16 +25,22 @@ head(ba100$TOT.A3.L024)
    filter(!is.na(Value)))
 
 # Plot YoY loans and advances
-
-(p <- ggplot(data = loans_and_advances) + 
+(p <- ggplot(data = loans_and_advances) +
   geom_line(aes(x = Period, y = Value), colour = "#273b8d", size = 2) +
-  labs(caption = "Source: EconData") + 
-  xlab("") + ylab("%") + 
-  theme_classic(base_size = 14) + 
-  theme(panel.grid.major.x = element_blank(), panel.grid.minor.x = element_blank(),
-        panel.grid.major.y = element_blank(), panel.grid.minor.y = element_blank(),
+  labs(caption = "Source: EconData") +
+  xlab("") + ylab("%") +
+  theme_classic(base_size = 14) +
+  theme(panel.grid.major.x = element_blank(),
+        panel.grid.minor.x = element_blank(),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
         axis.text = element_text(face = "bold")))
 
-
-ggsave("C:/GIT/econdata-blog/post 2/isnt/loans and advances.png", height = 4.5,width = 6, plot = p, dpi=1600, 
-        limitsize = FALSE, device = "png")
+# Save plot as PNG
+ggsave("post 2/inst/loans and advances.png",
+       height = 4.5,
+       width = 6,
+       plot = p,
+       dpi = 1600,
+       limitsize = FALSE,
+       device = "png")
