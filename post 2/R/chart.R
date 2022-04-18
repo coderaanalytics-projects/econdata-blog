@@ -37,7 +37,7 @@ head(ba100$TOT.A3.L024)
         axis.text = element_text(face = "bold")))
 
 # Save plot as PNG
-ggsave("post 2/inst/loans and advances.png",
+ggsave("loans and advances.png",
        height = 4.5,
        width = 6,
        plot = p,
