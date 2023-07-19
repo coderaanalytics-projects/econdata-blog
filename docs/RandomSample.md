@@ -1,4 +1,4 @@
-# List of all RandomSample posts
+# List of all RandomSample posts (sitemap)
 
 ## Categories
 
