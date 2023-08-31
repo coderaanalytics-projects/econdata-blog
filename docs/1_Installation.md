@@ -38,7 +38,7 @@ qlfs_raw <- read_econdata(id = "QLFS",
                           tidy = TRUE,
                           wide = FALSE,
                           compact = FALSE)
-qlfs_raw
+str(qlfs_raw)
 ```
 
 You thus need to use an ID when calling the data. We outline the IDs in [2_Available_Data](./2_Available_Data.md).

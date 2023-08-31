@@ -1,6 +1,6 @@
 # Available Data in EconData
 
-In this document, we give a list of the datasets that are hosted in [EconData](https://www.econdata.co.za). Dataset IDs are given in monospace font after the name.
+In this document, we give a list of the datasets that are hosted in [EconData](https://www.econdata.co.za). Dataset IDs are given in monospace font after the name. The `h2` headings are Data Providers.
 
 ## Statistics South Africa (StatsSA)
 
@@ -20,6 +20,11 @@ In this document, we give a list of the datasets that are hosted in [EconData](h
 
 ### Liquidations and Insolvencies [`LIQUIDATIONS`](./statssa/LIQUIDATIONS.md)
 
+### Manufacturing [`MANUFACTURING`](./statssa/MANUFACTURING.md)
+
+### Mining [`MINING`](./statssa/MINING.md)
+
+### Motor Trade [`MOTOR_TRADE`](./statssa/MOTOR_TRADE.md)
 
 
 
@@ -63,4 +68,31 @@ In this document, we give a list of the datasets that are hosted in [EconData](h
 
 ### Fiscal Sector [`FISCAL_SECTOR`](./sarb/FISCAL_SECTOR.md)
 
+### Market Rates [`MARKET_RATES`](./sarb/MARKET_RATES.md)
+
+### National Accounts [`NATL_ACC`](./sarb/NATL_ACC.md)
+
+STATSSA is also a Data Provider for `NATL_ACC`.
+
+
+
+
+## Codera Analytics
+
+### Exchange Rate Forecasts [`FX_FCAST`](./codera/FX_FCAST.md)
+
+- EURZAR
+- GBPZAR
+- USDZAR
+
+
+## National Treasury of South Africa
+
+Not public.
+
+### Government Contingent Liabilities `GOVTGUARANTEES`
+
+### Government Debt `GOVTDEBT`
+
+### Government Main Budget `GOVTBUDGET`
 
