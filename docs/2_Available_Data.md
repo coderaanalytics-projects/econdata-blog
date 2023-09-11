@@ -26,11 +26,25 @@ In this document, we give a list of the datasets that are hosted in [EconData](h
 
 ### Motor Trade	[`MOTOR_TRADE`](./statssa/MOTOR_TRADE.md)
 
+### Popular National Accounts Data `NATL_ACC_POP`
 
+### Producer Price Index `PPI`
 
-### Tourist Accommodation
+### Quarterly Labour Force Survey [`QLFS`](statssa/QLFS.md)
 
+Subscriber-only.
 
+### Regional National Accounts `NATL_ACC_REG`
+
+### Regional Population Data `POPULATION_DATA_REG`
+
+### Retail Trade `RETAIL`
+
+### Tourism and Migration `MIGRATION`
+
+### Tourist Accommodation `TOURIST_ACCOMMODATION`
+
+### Wholesale Trade `WHOLESALE`
 
 
 ## South African Reserve Bank (SARB)
@@ -73,6 +87,10 @@ In this document, we give a list of the datasets that are hosted in [EconData](h
 ### National Accounts	[`NATL_ACC`](./sarb/NATL_ACC.md)
 
 STATSSA is also a Data Provider for `NATL_ACC`.
+
+### Other Macroeconomic Indicators `OTHER_INDICATORS`
+
+### Population Data `POPULATION_DATA`
 
 
 
