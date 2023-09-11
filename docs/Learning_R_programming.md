@@ -36,7 +36,7 @@ An IDE is a computer program that programmers use to write programming code, and
 
 Our second-place recommendation is [www.DataCamp.com](https://app.datacamp.com/learn/skill-tracks/r-programming). This is because DataCamp is actually relatively cheap compared to academies with tutors and scheduled classes (which can cost several thousand rand for only about two months). In comparison, DataCamp only costs about R500 per month, making it much more cost-efficient than many online courses.
 
-The tutorials on DataCamp are a great introduction to R (and Python or SQL). They are interactive, go at your pace, andd the user experience of the app looks good. The tutorials are packaged into organised series making up courses and then series of courses make up certificates.
+The tutorials on DataCamp are a great introduction to R (and Python or SQL). They are interactive, go at your pace, and the user experience of the app looks good. The tutorials are packaged into organised series making up courses and then series of courses make up certificates.
 
 The difficulty of online courses is that one's motivation is mostly internal. Try to find developer friends who can hold you accountable (you can share your public DataCamp profile with them) and who can encourage you to carry on working hard. Developer friends can help out with questions you get stuck on, but the DataCamp courses provide a clear structure for learning material for beginners.
 
