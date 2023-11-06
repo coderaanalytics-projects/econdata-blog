@@ -35,6 +35,7 @@ library(econdatar)
 
 qlfs_raw <- read_econdata(id = "QLFS",
                           releasedescription = "latest",
+                          version = "latest",
                           tidy = TRUE,
                           wide = FALSE,
                           compact = FALSE)

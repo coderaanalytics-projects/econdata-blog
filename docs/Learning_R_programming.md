@@ -2,7 +2,7 @@
 
 [R](https://en.wikipedia.org/wiki/R_(programming_language)) is a [middle-level](https://en.wikipedia.org/wiki/High-level_programming_language) programming language that is well-designed for handling and analysing data, data visualization, and statistics. Python is more designed for advanced apps, and for machine learning, in comparison to R.
 
-The two main factors when deciding how to learn R are costs and personal motivation, and there is often a trade-off between the two, but have some recommendations for the most optimal choices. Unless you are a savant, we also think that interactivity is important when learning. Below, we describe our recommendations in order, with our highest recommended choice first.
+The two main factors when deciding how to learn R are costs and personal motivation, and there is often a trade-off between the two, but we have some recommendations for the most optimal choices. Unless you are a savant, we also think that interactivity is important when learning. Below, we describe our recommendations in order, with our highest recommended choice first.
 
 ## Swirl
 

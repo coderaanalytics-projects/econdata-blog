@@ -26,25 +26,25 @@ In this document, we give a list of the datasets that are hosted in [EconData](h
 
 ### Motor Trade	[`MOTOR_TRADE`](./statssa/MOTOR_TRADE.md)
 
-### Popular National Accounts Data `NATL_ACC_POP`
+### Popular National Accounts Data	`NATL_ACC_POP`
 
-### Producer Price Index `PPI`
+### Producer Price Index	`PPI`
 
-### Quarterly Labour Force Survey [`QLFS`](statssa/QLFS.md)
+### Quarterly Labour Force Survey	[`QLFS`](statssa/QLFS.md)
 
 Subscriber-only.
 
-### Regional National Accounts `NATL_ACC_REG`
+### Regional National Accounts	`NATL_ACC_REG`
 
-### Regional Population Data `POPULATION_DATA_REG`
+### Regional Population Data	`POPULATION_DATA_REG`
 
-### Retail Trade `RETAIL`
+### Retail Trade	`RETAIL`
 
-### Tourism and Migration `MIGRATION`
+### Tourism and Migration	`MIGRATION`
 
-### Tourist Accommodation `TOURIST_ACCOMMODATION`
+### Tourist Accommodation	`TOURIST_ACCOMMODATION`
 
-### Wholesale Trade `WHOLESALE`
+### Wholesale Trade	`WHOLESALE`
 
 
 ## South African Reserve Bank (SARB)
@@ -88,10 +88,9 @@ Subscriber-only.
 
 STATSSA is also a Data Provider for `NATL_ACC`.
 
-### Other Macroeconomic Indicators `OTHER_INDICATORS`
+### Other Macroeconomic Indicators	`OTHER_INDICATORS`
 
-### Population Data `POPULATION_DATA`
-
+### Population Data	`POPULATION_DATA`
 
 
 
@@ -99,9 +98,22 @@ STATSSA is also a Data Provider for `NATL_ACC`.
 
 ### Exchange Rate Forecasts	[`FX_FCAST`](./codera/FX_FCAST.md)
 
+Subscriber-only.
+
 - EURZAR
 - GBPZAR
 - USDZAR
+
+### Association for Savings and Investment South Africa (ASISA)
+
+Subscriber-only.
+
+#### Collective Investment Schemes (CIS)
+
+-   Hedge Funds	`CIS_HEDGE`
+-   Local Holdings	`LOCAL_HOLDINGS`
+-   Local Flows	`LOCAL_FLOWS`
+-   Foreign Funds	`CIS_FOREIGN`
 
 
 ## National Treasury of South Africa
