@@ -26,7 +26,7 @@ An IDE is a computer program that programmers use to write programming code, and
         install_course("R_Programming")
         install_course_github("NickCH-K", "Econometrics") 
 
-    Note that the free "R_Programming" swirl course comes from https://github.com/swirldev/swirl_courses#swirl-courses . If you are stuck, you can [meet Aidan](https://calendly.com/aidan-horn/25mins).
+    Note that the free "R_Programming" swirl course comes from https://github.com/swirldev/swirl_courses#swirl-courses . If you are stuck, you can [meet Aidan](https://calendly.com/aidan-horn/r-tutoring).
 
 5.  Since you have already run the `library("swirl")` command, you have `swirl` loaded into your current R session. Go ahead and type `swirl()` to start a `swirl` session. 
 6.  &nbsp; <font size="5">Choose the **R_Programming** course to start with! </font> Follow the on-screen prompts to get learning.
