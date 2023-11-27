@@ -49,6 +49,9 @@ The [outline](https://mitxonline.mit.edu/courses/course-v1:MITxT+14.310x/) reads
 
 We recommend using https://www.udemy.com/ to take an online course on R.
 
+## R Project Manual
+
+The R Project for Statistical Computing provides [this comprehensive manual](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) and [these FAQs](https://cran.r-project.org/doc/FAQ/R-FAQ.html).
 
 ## Advanced R courses
 
