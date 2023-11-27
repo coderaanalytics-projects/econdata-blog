@@ -60,7 +60,7 @@ Please read the [Tidyverse Style Guide](https://style.tidyverse.org/).
 To learn advanced R style... (we are busy investigating this question).
 
 
-# Other languages
+# Other programming languages
 
 ## Web Development
 
@@ -76,7 +76,63 @@ https://www.codecademy.com/
 
 In order to learn Python, a fairly expensive option could be to take a course with [Explore AI Academy](https://admissions.explore.ai/).
 
-## Careers
+
+# Writing
+
+[*Markup*](https://en.wikipedia.org/wiki/Markup_language) languages are defined in Wikipedia as:
+> a text-encoding system consisting of a set of symbols inserted in a text document to control its structure, formatting, or the relationship between its parts. Markup is often used to control the display of the document or to enrich its content to facilitate automated processing.
+
+MS Word is not necessary in order for computer-literate people to do work, as one can either use:
+1.  .txt documents, for basic notes
+2.  Markdown documents, for most note-taking and documentation
+3.  Google Docs, for widely-accepted collaboration
+4.  LibreOffice, an open-source and free suite of software akin to Microsoft Office
+5.  LaTeX, for lengthy or precise documents.
+6.  R Markdown
+
+A [Microsoft 365 subscription](https://www.microsoft.com/en-za/microsoft-365/buy/microsoft-365) is thus not necessary, and it is expensive. Perhaps in future people will come to realise that the above options are usable.
+
+## Philosophy on Microsoft Office
+
+**Aidan says:** One last question I am facing regarding this philosophy is that data needs to be exported to spreadsheets often, and Excel seems to be easier to write to compared to .ods files. Perhaps R could export to Google Sheets if I look into it. Note that Excel is **definitely** not needed for data visualization, as `ggplot2` in R provides a much more robust, iterable and automatable way of generating graphs.
+
+
+## Markdown
+
+Please use VS Code to edit Markdown files, refer to https://www.markdownguide.org/ for documentation, and preview Markdown files using [Typora](https://typora.io/).
+
+Markdown files can be [exported to a variety of formats using Typora](https://support.typora.io/Export/), including PDF, HTML, Word, LaTeX, Epub, OpenOffice, image, Wiki. Markdown files also render on a lot of websites, including those that host Git repositories, or cloud storage services.
+
+
+## LaTeX
+
+LaTeX is a markup language, intended to produce scientific documents, reports, academic articles, or any neat, professional-looking document. It is a word processor that gives one precise control over the processing of reports, and is able to handle the management of reports that run into hundreds of pages. A LaTeX document can be collaborated on using Git, or Overleaf. LaTeX (or even LyX) allows one to automate reports, pulling in images and tables from the directory, which can be updated by software. [Aidan's online introductory paragraphs on LaTeX.](https://eco5011f.aidanhorn.co.za/coding#h.t5dwrgjqz6bg) 
+
+LaTeX files export the document to PDF format. We recommend [SumatraPDF](https://www.sumatrapdfreader.org/) as the PDF viewer, as that lets one recompile the PDF file while it is still being previewed. One can also create slideshow presentations using LaTeX (usually by using the `beamer` package). So, when presenting a PDF presentation, go into full-screen mode in Adobe Acrobat by pressing Ctrl + L.
+
+
+## R Markdown
+
+R Markdown (.Rmd files) can also facilitate automation of reports: RStudio can export the file to HTML, Word, or PDF (using pandoc, through LaTeX). The PDF version of R Markdown is thus a dumbed-down version of LaTeX, which uses Markdown language.
+
+R code chunks can be run in an R Markdown file, running analysis and producing graphs or tables to be exported directly into the document. The disadvantage of this is that it can be difficult to debug errors, as the error information isn't clear when using R Markdown, but the main advantage is that descriptive statistics can be re-run on an automated basis, once bugs are cleared.
+
+YAML is used in the document heading.
+
+
+# Git
+
+Git is software that creates a central repository for programming code, when developers work together on a project. It is not intended to be used to store large amounts of data, but rather to help with observing changes to lines within programming scripts. A remote (centralized) git repository can be on a local server, but usually developers use GitHub, GitLab, or another online server to host the remote repository. Here are the beginning steps to getting started with Git:
+1.  Install Git
+1.  Make sure that you have VS Code installed (or an alternative IDE)
+1.  Install GitHub CLI
+1.  Have a GitHub account
+
+[Aidan's introductory Medium article](https://aidanhorn.medium.com/learning-git-766a4e2477d8)
+
+
+
+# Careers
 
 Programmers can find a job on [OfferZen](https://www.offerzen.com/z/clpoRY).
 
