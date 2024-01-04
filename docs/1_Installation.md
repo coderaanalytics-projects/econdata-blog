@@ -33,12 +33,12 @@ An example of how you can pull structured data, using the `read_econdata()` func
 ```r
 library(econdatar)
 
-qlfs_raw <- read_econdata(id = "QLFS",
+qlfs_raw <- read_econdata(id        = "QLFS",
                           releasedescription = "latest",
-                          version = "latest",
-                          tidy = TRUE,
-                          wide = FALSE,
-                          compact = FALSE)
+                          version   = "latest",
+                          tidy      = TRUE,
+                          wide      = FALSE,
+                          compact   = FALSE     )
 str(qlfs_raw)
 ```
 

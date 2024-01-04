@@ -29,7 +29,7 @@ An IDE is a computer program that programmers use to write programming code, and
     Note that the free "R_Programming" swirl course comes from https://github.com/swirldev/swirl_courses#swirl-courses . If you are stuck, you can [meet Aidan](https://calendly.com/aidan-horn/r-tutoring).
 
 5.  Since you have already run the `library("swirl")` command, you have `swirl` loaded into your current R session. Go ahead and type `swirl()` to start a `swirl` session. 
-6.  &nbsp; <font size="5">Choose the **R_Programming** course to start with! </font> Follow the on-screen prompts to get learning.
+6.  <font size="5">Choose the **R_Programming** course to start with! </font> Follow the on-screen prompts to get learning.
 7.  Carry on frequently returning to your `swirl` learning over the following days and weeks. The "Econometrics" course downloaded above is also a good course to work on after you complete the "R_Programming" course.
 
 ## DataCamp
@@ -130,6 +130,7 @@ Git is software that creates a central repository for programming code, when dev
 
 [Aidan's introductory Medium article](https://aidanhorn.medium.com/learning-git-766a4e2477d8)
 
+Always make sure you open a Git Bash terminal, and run `git fetch; git status`, before staging and committing your work. If your branch is not up-to-date with the remote, see if you can fast-forward your local repo, by running `git pull`. This will help there to be a linear history, which is neater. 
 
 
 # Careers

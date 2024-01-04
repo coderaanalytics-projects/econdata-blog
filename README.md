@@ -12,3 +12,7 @@ To read the [Markdown files](./docs/), either:
 
 This GitHub repo is also available for users of EconData to submit source code on use cases, through pull requests, creating a community effort of shared code. We feature the code here on [www.randomsample.co.za](https://www.randomsample.co.za). Check out the [Discussions](https://github.com/coderaanalytics-projects/econdata-blog/discussions/1) tab to introduce yourself to the community!
 
+## Environment Variables
+
+Please use `ECONDATA_BLOG` as the environment variable for this repository.
+

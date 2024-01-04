@@ -2,47 +2,47 @@
 
 In this document, we give a list of the datasets that are hosted in [EconData](https://www.econdata.co.za). Dataset IDs are given in monospace font after the name. The `h2` headings are Schema (where the dataflows are largely organised into Data Providers); and the `h3` headings are categories.
 
-## Statistics South Africa (StatsSA)
+## Statistics South Africa (StatsSA)	`STATSSA`
 
-### Primary Sector
+### Primary Sector	`SECTOR_PRIMARY`
 
 -   Mining	[`MINING`](./statssa/MINING.md)
 
 
-### Secondary Sector
+### Secondary Sector	`SECTOR_SECONDARY`
 
 -   Electricity Production	[`ELECTRICITY`](./statssa/ELECTRICITY.md)
 -   Manufacturing	[`MANUFACTURING`](./statssa/MANUFACTURING.md)
 
 
-### Judiciary
+### Judiciary	`JUDICIARY`
 
 -   Civil Cases for Debt	[`CIVIL_CASES`](./statssa/CIVIL_CASES.md)
 -   Liquidations and Insolvencies	[`LIQUIDATIONS`](./statssa/LIQUIDATIONS.md)
 
 
-### Price Indicies (Inflation)
+### Price Indicies (Inflation)	`INFLATION`
 
 -   CPI Analytical Series	[`CPI_ANL_SERIES`](./statssa/CPI_ANL_SERIES.md)
 -   CPI COICOP 5-digits	[`CPI_COICOP_5`](./statssa/CPI_COICOP_5.md)<br/>
     The Classification of Individual Consumption According to Purpose (COICOP) is the international reference classification of household expenditure.
 -   Producer Price Index	[`PPI`](./statssa/PPI.md)
 
-### Travel
+### Travel	`TRAVEL`
 
 -   Land Transport	[`LAND_TRANSPORT`](./statssa/LAND_TRANSPORT.md)
 -   Tourism and Migration	[`MIGRATION`](./statssa/MIGRATION.md)
 -   Tourist Accommodation	[`TOURIST_ACCOMMODATION`](./statssa/TOURIST_ACCOMMODATION.md)
 
 
-### Trade
+### Trade	`TRADE`
 
 -   Motor Trade	[`MOTOR_TRADE`](./statssa/MOTOR_TRADE.md)
 -   Retail Trade	[`RETAIL`](./statssa/RETAIL.md)
 -   Wholesale Trade	[`WHOLESALE`](./statssa/WHOLESALE.md)
 
 
-### Human Capital
+### Human Capital	`HUMAN`
 
 -   Regional Population Data	[`POPULATION_DATA_REG`](./statssa/POPULATION_DATA_REG.md)
 -   SARB Population Data	[`POPULATION_DATA`](./sarb/POPULATION_DATA.md)
@@ -50,11 +50,11 @@ In this document, we give a list of the datasets that are hosted in [EconData](h
 
 
 
-## Public Accounting
+## Public Accounting	`ACCOUNTS`
 
 Reports on aggregate assets and government transactions. Public finance assesses government revenue and expenditure of the public authorities and adjustments that are made. It includes accounting, budgeting and debt, at various geospatial levels.
 
-### National Treasury of South Africa
+### National Treasury of South Africa	`ACCOUNTS_NT`
 
 Not public.
 
@@ -64,7 +64,7 @@ The National Treasury is responsible for managing South Africa's national govern
 -   Government Debt	`GOVTDEBT`
 -   Government Contingent Liabilities	`GOVTGUARANTEES`
 
-### Accounts from SARB
+### Accounts from SARB	`ACCOUNTS_SARB`
 
 SARB reports on aggregate assets and government transactions, including government income and expenditure.
 
@@ -73,7 +73,7 @@ SARB reports on aggregate assets and government transactions, including governme
 -   Fiscal Sector	[`FISCAL_SECTOR`](./sarb/FISCAL_SECTOR.md)
 -   National Accounts	[`NATL_ACC`](./sarb/NATL_ACC.md)
 
-### Accounts from StatsSA
+### Accounts from StatsSA	`ACCOUNTS_STATSSA`
 
 Public finance assesses government revenue and expenditure of the public authorities and adjustments that are made. It includes accounting, budgeting and debt, at various geospatial levels. Public finance has an effect on: (1) The efficient allocation of available resources; (2) The distribution of income among citizens; and (3) The stability of the economy.
 
@@ -82,9 +82,9 @@ Public finance assesses government revenue and expenditure of the public authori
 -   Regional National Accounts	[`NATL_ACC_REG`](./statssa/NATL_ACC_REG.md)
 
 
-## South African Reserve Bank (SARB)
+## South African Reserve Bank (SARB)	`SARB`
 
-### Banking Sector Data (Basel Regulatory Reporting)
+### Banking Sector Data (Basel Regulatory Reporting)	`BASEL`
 
 The South African banking sector's information is based on different regulatory frameworks, namely Basel II (1 Jan 2008 - 31 Dec 2011), Basel 2.5 (1 Jan 2011 - 31 Dec 2012), and Basel III (1 Jan 2013 onwards). DI forms refer to the period prior to 1 January 2008 and the implementation of Basel II. The implementation of Basel II in 2008 involved a detailed process, including Pillar 1 (minimum regulatory capital), Pillar 2 (capital management), and Pillar 3 (market discipline). Basel III addresses systemic risks through capital quality, risk coverage, and additional buffers.
 
@@ -108,13 +108,13 @@ The South African banking sector's information is based on different regulatory 
 -   Bank Balance Sheet (institutional)	`BA900`<br/>
     [Shiny Dashboard](https://codera.co.za/coderas-banking-dashboard/)
 
-### Indicators
+### Indicators	`INDICATORS`
 
 -   Business Cycles	[`BUSINESS_CYCLES`](./sarb/BUSINESS_CYCLES.md)
 -   Other Macroeconomic Indicators	`OTHER_INDICATORS`
 
 
-### Rates
+### Rates	`RATES`
 
 -   [CPD](https://nationalgovernment.co.za/units/view/408/corporation-for-public-deposits) Interest Rates	[`CPD_RATES`](./sarb/CPD_RATES.md)
 -   Market Rates	[`MARKET_RATES`](./sarb/MARKET_RATES.md)
@@ -123,13 +123,13 @@ The South African banking sector's information is based on different regulatory 
     - GBPZAR
     - USDZAR
 
-## Association for Savings and Investment South Africa (ASISA)
+## Association for Savings and Investment South Africa	`ASISA`
 
 Subscriber-only.
 
 The Association for Savings and Investment South Africa (ASISA) represents the collective interests of the country's asset managers, collective investment scheme management companies, linked investment service providers, multi-managers and life insurance companies. EconData hosts key series provided publicly by ASISA.
 
-#### [Collective Investment Schemes (CIS)](./asisa/CIS.md)
+#### [Collective Investment Schemes](./asisa/CIS.md)	`CIS`
 
 These dataflows are forthcoming.
 
