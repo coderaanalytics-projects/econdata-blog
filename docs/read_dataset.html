@@ -1,0 +1,76 @@
+<body><div class="container">
+<table style="width: 100%;"><tbody><tr><td>read_dataset {econdatar}</td><td style="text-align: right;">R Documentation</td></tr></tbody></table>
+<h2 id="read_dataset">read_dataset</h2>
+<h3>Description</h3>
+<p>Returns the data for the given data set - ECONDATA:id(version), as a list, or as tidy <em>data.table</em>'s. Available data sets can be looked up using <code>read_database()</code> or from the web platform (http://econdata.co.za). Tidying can be done directly within <code>read_dataset()</code>, or ex-post using <code>tidy_data()</code>.</p>
+
+<h3>Usage</h3>
+<div class="code-toolbar"><pre class="language-r" tabindex="0"><code class="language-r">read_dataset<span class="token punctuation">(</span>id<span class="token punctuation">,</span> tidy <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+<span class="token comment">## S3 method for class 'eds_dataset'</span>
+tidy_data<span class="token punctuation">(</span>x<span class="token punctuation">,</span> wide <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">,</span> <span class="token ellipsis">...</span><span class="token punctuation">)</span>
+</code></pre><div class="toolbar"></div></div>
+
+<h3>Arguments</h3>
+<table><tbody>
+    <tr><td><code id="read_dataset_:_id">id</code></td>     <td><p>Data set identifier.</p></td></tr>
+    <tr><td><code id="read_dataset_:_x">x</code></td>       <td><p>A raw API return object to be tidied. Can also be done directly in <code>read_dataset()</code> by setting <code>tidy = TRUE</code>. See <code>tidy</code> below for tidying options.</p></td></tr>
+    <tr><td><code id="read_dataset_:_wide">wide</code></td> <td><p>Should the tidied data be returned in <em>wide</em> or <em>long</em> format.</p></td></tr>
+    <tr><td><code id="read_dataset_:_...">...</code></td>   <td><p>Further <em>Optional</em> arguments:</p><table><tbody>
+        <tr><td style="text-align: left;"><code>agencyid</code></td>    <td style="text-align: left;"></td> <td style="text-align: left;"> character. Defaults to <code>ECONDATA</code>. Agency responsible for the metadata creation/maintenance. </td></tr>
+        <tr><td style="text-align: left;"><code>version</code> </td>    <td style="text-align: left;"></td> <td style="text-align: left;"> character. Version(s) of the data (different versions will have different metadata), or 'all' to return all available versions. </td></tr>
+        <tr><td style="text-align: left;"><code>series_key</code></td>  <td style="text-align: left;"></td> <td style="text-align: left;"> character. A character vector specifying a subset of time series (see the web platform (export function) for details). </td></tr>
+        <tr><td style="text-align: left;"><code>release</code></td>     <td style="text-align: left;"></td> <td style="text-align: left;"> character (optionally with format %Y-%m-%dT%H:%M:%S, to be coerced to a date/time). The release description, which will return the data associated with that release (if the given description matches an existsing release); or a date/time which will return the data as it was at the given time; or 'latest' which will return the latest release; or 'unreleased' which will return any unreleased data (useful for data that is updated more often than it is released, e.g. daily data). </td></tr>
+        <tr><td style="text-align: left;"><code>file</code></td>        <td style="text-align: left;"></td> <td style="text-align: left;"> character. File name for retrieving data sets stored as JSON data from disk (output of <code>read_dataset()</code>. </td></tr>
+        <tr><td style="text-align: left;"><code>username</code></td>    <td style="text-align: left;"></td> <td style="text-align: left;"> character. Web username. </td></tr>
+        <tr><td style="text-align: left;"><code>password</code></td>    <td style="text-align: left;"></td> <td style="text-align: left;"> character. Web password. </td></tr>
+        <tr><td style="text-align: left;"><code>tidy</code></td>        <td style="text-align: left;"></td> <td style="text-align: left;"> logical. Return data and metadata in tidy <em>data.table</em>'s (see Value), by passing the result through <code>tidy_data</code>. If <code>TRUE</code>, <code>read_dataset()/tidy_data()</code> admit the following additional arguments: </td></tr>
+        <tr><td style="text-align: left;"><code>wide</code></td>        <td style="text-align: left;"></td> <td style="text-align: left;"> logical, default: <code>TRUE</code>. Returns data in a column-based format, with <code>"label"</code> and <code>"source_identifier"</code> attributes to columns (when available) and an overall "metadata" attribute to the table, otherwise a long-format is returned. See Value. </td></tr>
+        <tr><td style="text-align: left;"><code>codelabel</code></td>   <td style="text-align: left;"></td> <td style="text-align: left;"> logical, default: <code>FALSE</code>. If <code>wide = TRUE</code>, setting <code>codelabel = TRUE</code> the data key will be used to generate the <code>"label"</code>, when available. </td></tr>
+        <tr><td style="text-align: left;"><code>combine</code></td>     <td style="text-align: left;"></td> <td style="text-align: left;"> logical, default: <code>FALSE</code>. If <code>wide = FALSE</code>, setting <code>combine = TRUE</code> will combine all data and metadata into a single long table, whereas the default <code>FALSE</code> will return data and metadata in separate tables, for more efficient storage. </td></tr>
+        <tr><td style="text-align: left;"><code>origmeta</code></td>    <td style="text-align: left;"></td> <td style="text-align: left;"> logical, default: <code>FALSE</code>. If <code>wide = FALSE</code>, setting <code>origmeta = TRUE</code> will combine all metadata fields attached to the series in the dataset as they are. The default is to construct a standardized set of metadata variables, and then drop those not observed. See also <code>allmeta</code>. </td></tr>
+        <tr><td style="text-align: left;"><code>allmeta</code></td>     <td style="text-align: left;"></td> <td style="text-align: left;"> logical, default: <code>FALSE</code>. If <code>wide = FALSE</code>, setting <code>allmeta = TRUE</code> always returns the full set of metadata fields, regardless of whether they are recorded for the given dataset. It is also possible that there are series with zero observations in a dataset. Such series are dropped in tidy output, but if <code>combine = FALSE</code>, <code>allmeta = TRUE</code> retains their metadata in the metadata table. </td></tr>
+        <tr><td style="text-align: left;"><code>prettymeta</code></td>  <td style="text-align: left;"></td> <td style="text-align: left;"> logical, default: <code>TRUE</code>. Attempts to make the returned metadata more human readable replacing each code category and enumeration with its name. It is advisable to leave this set to <code>TRUE</code>, in some cases, where speed is paramount you may want to set this flag to <code>FALSE</code>. If multiple datasets are being querioed this option is automatically set to <code>FALSE</code>. </td></tr>
+        <tr><td style="text-align: left;"><code>release</code></td>     <td style="text-align: left;"></td><td style="text-align: left;"> logical, default: <code>FALSE</code>. <code>TRUE</code> allows you to apply <code>tidy_data()</code> to objects returned by <code>read_release()</code>. All other flags to <code>tidy_data()</code> are ignored. </td></tr>
+    </tbody></table>
+</tbody></table>
+
+<h3>Details</h3>
+<p>An EconData account (http://econdata.co.za) is required to use this function. The user must provide their credentials either through the function arguments, or by setting the ECONDATA_CREDENTIALS environment variable using the syntax: "username;password", e.g. <code>Sys.setenv(ECONDATA_CREDENTIALS="username;password")</code>. If credentials are not supplied by the aforementioned methods a GUI dialog will prompt the user for credentials.</p>
+
+<h3>Value</h3>
+<p>If <code>tidy = FALSE</code>, a list of data frames is returned, where the names of the list are the EconData series codes, and each data frame has a single column named 'OBS_VALUE' containing the data, with corresponding dates attached as rownames. Each data frame further has a <code>"metadata"</code> attribute providing information about the series. The entire list of data frames also has a <code>"metadata"</code> attribute, providing information about the dataset. If multiple datasets (or versions of a dataset if <code>version</code> is specified as 'all') are being queried, a list of such lists is returned.</p>
+<p>If <code>tidy = TRUE</code> and <code>wide = TRUE</code> (the default), a single <em>data.table</em> is returned where the first column is the date, and the remaining columns are series named by their EconData codes. Each series has two attributes: <code>"label"</code> provides a variable label combining important metadata from the <code>"metadata"</code> attribute in the non-tidy format, and <code>"source.code"</code> gives the series code assigned by the original data provider. The table has the same dataset-level <code>"metadata"</code> attribute as the list of data frames if <code>tidy = FALSE</code>. If multiple datasets (or versions of a dataset if <code>version</code> is specified as 'all') are being queried, a list of such <em>data.table</em>'s is returned.</p>
+<p>If <code>tidy = TRUE</code> and <code>wide = FALSE</code> and <code>compact = FALSE</code> (the default), a named list of two <em>data.table</em>'s is returned. The first, <code>"data"</code>, has columns 'code', 'date' and 'value' providing the data in a long format. The second, <code>"metadata"</code>, provides dataset and series-level matadata, with one row for each series. If <code>compact = TRUE</code>, these two datasets are combined, where all repetitive content is converted to factors for more efficient storage. If multiple datasets (or versions of a dataset if <code>version</code> is specified as 'all') are being queried, <code>compact = FALSE</code> gives a nested list, whereas <code>compact = TRUE</code> binds everything together to a single long frame. In general, if <code>wide = FALSE</code>, no attributes are attached to the tables or columns in the tables.</p>
+
+
+<h3>Examples</h3>
+<p><a href="http://localhost:16150/library/econdatar/Example/read_dataset">Run examples</a></p><div class="code-toolbar"><pre class="language-r" tabindex="0"><code class="language-r"><span class="token comment">## Not run: </span>
+<span class="token comment"># library(econdatar)</span>
+<span class="token comment"># Sys.setenv(ECONDATA_CREDENTIALS="username;password")</span>
+<span class="token comment"># for ids/versions see: https://www.econdata.co.za/app</span>
+
+<span class="token comment"># Electricity Generated</span>
+ELECTRICITY <span class="token operator">&lt;-</span> read_dataset<span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"ELECTRICITY"</span><span class="token punctuation">)</span>
+ELECTRICITY_WIDE <span class="token operator">&lt;-</span> tidy_data<span class="token punctuation">(</span>ELECTRICITY<span class="token punctuation">)</span> <span class="token comment"># Or: read_dataset("ELECTRICITY", tidy = TRUE)</span>
+ELECTRICITY_LONG <span class="token operator">&lt;-</span> tidy_data<span class="token punctuation">(</span>ELECTRICITY<span class="token punctuation">,</span> wide <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">)</span>
+<span class="token comment"># Same as tidy_data(ELECTRICITY, wide = FALSE, combine = TRUE):</span>
+with<span class="token punctuation">(</span>ELECTRICITY_LONG<span class="token punctuation">,</span> metadata<span class="token punctuation">[</span>data<span class="token punctuation">,</span> on <span class="token operator">=</span> <span class="token string">"data_key"</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># CPI Analytical Series: Different Revisions</span>
+CPI_ANL <span class="token operator">&lt;-</span> read_dataset<span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"CPI_ANL_SERIES"</span><span class="token punctuation">,</span> version <span class="token operator">=</span> <span class="token string">"all"</span><span class="token punctuation">)</span>
+CPI_ANL_WIDE <span class="token operator">&lt;-</span> tidy_data<span class="token punctuation">(</span>CPI_ANL<span class="token punctuation">)</span>
+CPI_ANL_LONG <span class="token operator">&lt;-</span> tidy_data<span class="token punctuation">(</span>CPI_ANL<span class="token punctuation">,</span> wide <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> combine <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span>
+CPI_ANL_ALLMETA <span class="token operator">&lt;-</span> tidy_data<span class="token punctuation">(</span>CPI_ANL<span class="token punctuation">,</span> wide <span class="token operator">=</span> <span class="token boolean">FALSE</span><span class="token punctuation">,</span> allmeta <span class="token operator">=</span> <span class="token boolean">TRUE</span><span class="token punctuation">)</span> <span class="token comment"># v2.0 has some 0-obs series</span>
+
+<span class="token comment"># Can query a specific version by adding e.g. version = "2.0.0" to the call</span>
+
+<span class="token comment"># Returns 5-10 years (daily average bond yields) not yet contained in the latest release</span>
+<span class="token comment"># (particularly useful for daily data that is released monthly)</span>
+MARKET_RATES <span class="token operator">&lt;-</span> read_dataset<span class="token punctuation">(</span>id <span class="token operator">=</span> <span class="token string">"MARKET_RATES"</span><span class="token punctuation">,</span> series_key <span class="token operator">=</span> <span class="token string">"CMJD003.B.A"</span><span class="token punctuation">,</span> release <span class="token operator">=</span> <span class="token string">"unreleased"</span><span class="token punctuation">)</span>
+
+<span class="token comment">## End(Not run)</span>
+</code></pre><div class="toolbar"></div></div>
+
+<div style="text-align: center;">[Package <em>econdatar</em> version 3.0.2 <a href="https://rdrr.io/github/coderaanalytics/econdatar/">Index</a>]</div>
+</div>
+</body>
