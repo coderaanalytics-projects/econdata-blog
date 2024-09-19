@@ -1,4 +1,4 @@
-# List of all RandomSample posts (sitemap)
+# List of all EconData Blog posts (sitemap)
 
 ## Categories
 

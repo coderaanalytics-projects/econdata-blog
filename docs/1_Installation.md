@@ -1,1 +1,0 @@
-https://econdata.co.za/user-guide/installation/
