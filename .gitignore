@@ -4,3 +4,4 @@ docs/concept-checker.R
 tmp.*
 test.SQL
 concept-checker.R
+.venv/
