@@ -1,0 +1,101 @@
+# Plotting the Spatial Tax Panel from EconData
+
+"How does spatial data from EconData get put on a map?" is a question we have been asked. Read on, for in this blog post we show you how to attach data extracted from EconData to a map.
+
+For this tutorial, we will use the [Spatial Tax Panel](https://econdata.co.za/user-guide/statssa/human-capital/#STP). First, navigate to the [**Municipal Demarcation Board's** website](https://spatialhub-mdb-sa.opendata.arcgis.com/datasets/e0223a825ea2481fa72220ad3204276b/about), and download the latest ward shape file. Keep the entire folder together when reading the .shp file from R. In step 3 below, we joins wards within districts together, as we will be plotting district data.
+
+```r
+# Map of median income by district, from the Spatial Tax Panel
+# Codera Analytics https://econdata.co.za
+
+# 1. Load R packages (run install.packages() if you don't have one of these installed already)
+library(tidyverse)
+library(econdatar)  # library(remotes) then install_github("coderaanalytics/econdatar@4.0.1")
+library(sf)
+
+# 2. Read wards shapefile and fix geometry
+# This is the shp file as downloaded from the Municipal Demarcation Board
+# https://spatialhub-mdb-sa.opendata.arcgis.com/datasets/e0223a825ea2481fa72220ad3204276b/about
+shapes <- st_read(file.path("data", "SA_Wards2020", "SA_Wards2020.shp")) %>%
+  st_transform(crs = 4326) %>%
+  st_make_valid()
+
+# 3. Aggregate the wards up to the district level
+districts <- shapes %>%
+    filter(!is.na(District)) %>%
+    group_by(Province, District, DistrictCo) %>%
+    summarise(geometry = st_union(geometry), .groups = "drop") %>%
+    st_make_valid() %>%
+    mutate(area_km2 = as.numeric(st_area(geometry)) / (10^6))
+```
+
+The Spatial Tax Panel is publicly accessible on EconData. If you haven't done so already, you need to create an account at https://www.econdata.co.za , then you can use our public datasets. The R code chunk below shows a way of programmatically extracting the Spatial Tax Panel data from the EconData database.
+
+```r
+# 4. Extract STP data from EconData, as codes
+stp_raw_nonpretty_combined <- read_dataset("STP",
+    tidy = TRUE,
+    wide = FALSE,
+    combine = TRUE,
+    prettify = FALSE,
+    series_key = "..A.0.A"  # exclude gender, industry and age categories
+) %>% as_tibble()
+```
+
+All the area hierarchies are in the same dimension, but you can utilize our district codelist to filter the data to only the districts.
+
+```r
+# 5. EconData's district codelist
+cl_district <- read_registry("codelist", id="CL_DISTRICT")
+
+# 6. Filter the data from all area hierarchies, to only districts
+stp_income_district_nonpretty <- stp_raw_nonpretty_combined %>%
+  filter(mnemonic == "MI" & # median income
+         region %in% cl_district$codes$id)
+```
+
+Here's where we join the shape file to the data from EconData!
+
+```
+# 7. Join the shape fle to the quantitative data, and filter to the last time period for the map
+districts_income <- inner_join(districts, stp_income_district_nonpretty %>%
+        group_by(region) %>%
+        filter(time_period == max(time_period)),
+      by = join_by("DistrictCo" == "region"))
+```
+
+Now we can create a visual chart.
+
+```r
+# 8. Build the ggplot chart
+ggplot_map_districts_income <- ggplot(districts_income) +
+    theme_void(base_size = 15) +
+    geom_sf(aes(fill=obs_value/1000, group=District), color=NA) +
+    coord_sf(expand = FALSE) +  # ensures a 1:1 aspect ratio
+    theme(
+        plot.caption = element_text(hjust = 0, margin = margin(b=3, t=9)),
+        legend.position = "inside",
+        legend.position.inside = c(0.95, 0.15),
+        legend.title = element_text(size = rel(0.8))
+    ) +
+    scale_fill_gradientn(colours = c("white", "#273b8d"),
+                         limits = c(0, NA)) +
+    labs(fill = "Thousands\nof rands\nper month",
+        title = "    Median Income by District",
+        caption = "Source: SARS Spatial Tax Panel, EconData"
+    )
+    # codera_logo(xpos = 0.15, ypos = 0.92, wdth = 7.6)
+
+# 9. Export the ggplot object to a file
+ggsave(
+  filename = "sars/stp_income_district_map.jpg",
+  plot = ggplot_map_districts_income,
+  width = 17,
+  height = 15.7,
+  units = "cm"
+)
+```
+
+Here is the output of that code (although including our logo)!
+
+![](/sars/stp_income_district_map.jpg)
