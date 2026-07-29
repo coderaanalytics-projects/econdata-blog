@@ -6,3 +6,4 @@ test.SQL
 concept-checker.R
 .venv/
 flows_sample.xlsx
+.cursor/
