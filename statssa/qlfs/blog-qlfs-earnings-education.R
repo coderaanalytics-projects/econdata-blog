@@ -7,29 +7,32 @@ library(econdatar)  # library(remotes) then install_github("coderaanalytics/econ
 
 # 2. Extract QLFS mean real earnings (WRML) and employment (EMPL) by education
 # LABSTAT.CATEGORY.AREA.SEX  -  use + within a dimension, . between dimensions
+qlfs_series_key <- "WRML+EMPL.ENONE+ELTPS+EPRIM+ESNOT+ESECD+ETERT.SA.A"
 qlfs <- read_dataset("QLFS",
     tidy = TRUE,
     wide = FALSE,
     combine = TRUE,
-    series_key = "WRML+EMPL.ENONE+ELTPS+EPRIM+ESNOT+ESECD+ETERT.SA.A"
+    series_key = qlfs_series_key
 ) %>% as_tibble()
 
-# 3. Split the series key into dimension codes
+# 3. Split the series key into dimension codes; labels from grouping_category
 qlfs <- qlfs %>%
   separate(series_key, into = c("labstat", "category", "area", "sex"),
-           sep = "\\.", remove = FALSE)
+           sep = "\\.", remove = FALSE) %>%
+  mutate(education = str_remove(as.character(grouping_category),
+                                "^Education:\\s*"))
 
-edu_labels <- c(
-  ENONE = "No schooling",
-  ELTPS = "Less than primary completed",
-  EPRIM = "Primary completed",
-  ESNOT = "Secondary not completed",
-  ESECD = "Secondary completed",
-  ETERT = "Tertiary"
-)
+edu_code_levels <- str_split(
+  str_extract(qlfs_series_key, "(?<=\\.)[^.]+(?=\\.)"),
+  "\\+"
+)[[1]]
+edu_label_levels <- qlfs %>%
+  distinct(category, education) %>%
+  slice(match(edu_code_levels, category)) %>%
+  pull(education)
 
 # 4. Latest calendar year with four non-missing earnings quarters for every education group
-n_edu <- length(edu_labels)
+n_edu <- n_distinct(qlfs$category)
 latest_year <- qlfs %>%
   filter(labstat == "WRML", !is.na(obs_value)) %>%
   mutate(year = year(time_period)) %>%
@@ -45,14 +48,14 @@ latest_year <- qlfs %>%
 earnings_edu <- qlfs %>%
   mutate(year = year(time_period)) %>%
   filter(year == latest_year) %>%
-  select(time_period, labstat, category, obs_value) %>%
+  select(time_period, labstat, category, education, obs_value) %>%
   pivot_wider(names_from = labstat, values_from = obs_value) %>%
-  group_by(category) %>%
+  group_by(category, education) %>%
   summarise(
     mean_earnings = weighted.mean(WRML, w = EMPL, na.rm = TRUE),
     .groups = "drop"
   ) %>%
-  mutate(education = factor(edu_labels[category], levels = unname(edu_labels)))
+  mutate(education = factor(education, levels = edu_label_levels))
 
 # 6. Headline CPI (public), and inflate from the QLFS earnings base period
 #    to the latest CPI month available
