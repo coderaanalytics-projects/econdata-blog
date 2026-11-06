@@ -71,7 +71,7 @@ The other nine categories keep their codes. The 13 categories add up to total ho
 
 ## Other things to know
 
-- **Source codes.** The `SOURCE_IDENTIFIER` attribute of each series now holds StatsSA's own series code (for example `AN1000`, annual GDP at current prices), and `ORIG_DATA_ID` holds the South African Reserve Bank's code for the same series (for example `KBP6006Y`) where the Reserve Bank publishes one. `ORIG_DATA_ID` is SDMX's "originator data identifier".
+- **Source codes.** As in `2.0.0`, the `SOURCE_IDENTIFIER` attribute holds the South African Reserve Bank's code for the series (for example `KBP6006Y`), where the Reserve Bank publishes one; in `2.1.0` the code is specific to each series, whereas `2.0.0` shared one code between a series' price and adjustment variants. The new `ORIG_DATA_ID` attribute (SDMX's "originator data identifier") holds StatsSA's own series code (for example `AR1000`).
 - **Corrections in the 2.0.0 series.** While building `2.1.0` we found three problems in the household consumption series of `2.0.0`: the quarterly series labelled "current prices, seasonally adjusted" for each household consumption category held the constant-price series; the household consumption of services series had no data; and the quarterly current-price series by category had no data. All three are fixed in `2.1.0`. `2.0.0` has not been changed.
 - **Later revisions.** StatsSA has said that a new agriculture methodology is due in March 2027 and new seasonal factors in June 2027. EconData will keep each release as its own vintage.
 
